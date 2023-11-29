@@ -10,15 +10,16 @@ body {
   background-color: #000;
   border-radius: 5px;
   padding-bottom: 20px;
-  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .calculator input {
-  /* width: 80vw; */
-  /* padding: 20px 0; */
   width: 280px;
   font-size: 60px;
   margin: 40px 0;
+}
+
+input[type="text"] {
+  text-align: right;
 }
 
 .calculator button {
