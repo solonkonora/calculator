@@ -53,9 +53,9 @@ function deleteLastInput() {
   if (resultInput.value.length === 0) {
     return;
   } else {
-    let splittedInputs = resultInput.value.split(' ');
+    let splittedInputs = resultInput.value.split('');
     splittedInputs.pop();
-    let updatedInput = splittedInputs.join(' ');
+    let updatedInput = splittedInputs.join('');
     resultInput.value = updatedInput; // Update the resultInput.value with the updated input
   }
 }
