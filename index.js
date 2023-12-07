@@ -48,15 +48,14 @@ function appendToInput (value) {
   resultInput.value += value
 }
 
-//function to perform the deleting of a value
+// function to perform the deleting of a value
 function deleteLastInput () {
   if (resultInput.value.length === 0) {
-    return
   } else {
-    let splittedInputs = resultInput.value.split('')
+    const splittedInputs = resultInput.value.split('')
     splittedInputs.pop()
-    let updatedInput = splittedInputs.join('')
-    resultInput.value = updatedInput; // Update the resultInput.value with the updated input
+    const updatedInput = splittedInputs.join('')
+    resultInput.value = updatedInput // Update the resultInput.value with the updated input
   }
 }
 
