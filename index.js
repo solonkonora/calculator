@@ -22,7 +22,7 @@ function handleButtonClick(buttonText) {
     case '%':
       calculatePercentage()
       break
-    case 'Del':
+    case 'DEL':
       deleteLastInput()
       break
     case '=':
@@ -50,16 +50,15 @@ function appendToInput(value) {
 
 //function to perform the deleting of a value
 function deleteLastInput() {
-  if (Input.length === 0) {
-    return resultInput.value
+  if (resultInput.value.length === 0) {
+    return;
   } else {
-    let inputs = inputs.split(" ")
-    inputs.pop()
+    let splittedInputs = resultInput.value.split(' ');
+    splittedInputs.pop();
+    let updatedInput = splittedInputs.join(' ');
+    resultInput.value = updatedInput; // Update the resultInput.value with the updated input
   }
-  let updatedInput = inputs.join(" ")
-  return updatedInput
 }
-console.log(deleteLastInput())
 
 // Function to append decimal point
 function appendDecimal() {
