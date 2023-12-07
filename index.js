@@ -11,7 +11,7 @@ buttons.forEach(button => {
 })
 
 // Function to handle button clicks
-function handleButtonClick(buttonText) {
+function handleButtonClick (buttonText) {
   switch (buttonText) {
     case 'AC':
       resultInput.value = ''
@@ -44,31 +44,31 @@ function handleButtonClick(buttonText) {
 }
 
 // Function to append the clicked button value to the input field
-function appendToInput(value) {
+function appendToInput (value) {
   resultInput.value += value
 }
 
 //function to perform the deleting of a value
-function deleteLastInput() {
+function deleteLastInput () {
   if (resultInput.value.length === 0) {
-    return;
+    return
   } else {
-    let splittedInputs = resultInput.value.split('');
-    splittedInputs.pop();
-    let updatedInput = splittedInputs.join('');
+    let splittedInputs = resultInput.value.split('')
+    splittedInputs.pop()
+    let updatedInput = splittedInputs.join('')
     resultInput.value = updatedInput; // Update the resultInput.value with the updated input
   }
 }
 
 // Function to append decimal point
-function appendDecimal() {
+function appendDecimal () {
   if (!resultInput.value.includes('.')) {
     resultInput.value += '.'
   }
 }
 
 // Function to append the clicked operator to the input field
-function appendOperator(value) {
+function appendOperator (value) {
   const lastChar = resultInput.value.slice(-1)
   if (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') {
     // Replace the last operator if it already exists
@@ -79,19 +79,19 @@ function appendOperator(value) {
 }
 
 // Function to negate the current input value
-function negate() {
-  const currentValue = parseFloat(resultInput.value)
+function negate () {
+  const currentValue = parseFloat(resultInput.value) //The parseFloat() function is used to convert the value to a floating-point number. This step ensures that the value is treated as a number rather than a string.
   resultInput.value = -currentValue
 }
 
 // Function to calculate the percentage of the current input value
-function calculatePercentage() {
+function calculatePercentage () {
   const currentValue = parseFloat(resultInput.value)
   resultInput.value = currentValue / 100
 }
 
 // Function to calculate the result of the arithmetic expression in the input field
-function calculateResult() {
+function calculateResult () {
   try {
     const result = eval(resultInput.value)
     resultInput.value = result
