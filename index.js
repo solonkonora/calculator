@@ -49,13 +49,12 @@ function appendToInput (value) {
 }
 
 // function to perform the deleting of a value
-function deleteLastInput () {
-  if (resultInput.value.length === 0) {
-  } else {
-    const splittedInputs = resultInput.value.split('')
-    splittedInputs.pop()
-    const updatedInput = splittedInputs.join('')
-    resultInput.value = updatedInput // Update the resultInput.value with the updated input
+function deleteLastInput() {
+  if (resultInput.value.length > 0) {
+    const splittedInputs = resultInput.value.split('');
+    splittedInputs.pop();
+    const updatedInput = splittedInputs.join('');
+    resultInput.value = updatedInput; // Update the resultInput.value with the updated input
   }
 }
 
@@ -79,7 +78,7 @@ function appendOperator (value) {
 
 // Function to negate the current input value
 function negate () {
-  const currentValue = parseFloat(resultInput.value) //The parseFloat() function is used to convert the value to a floating-point number. This step ensures that the value is treated as a number rather than a string.
+  const currentValue = parseFloat(resultInput.value) // The parseFloat() function is used to convert the value to a floating-point number. This step ensures that the value is treated as a number rather than a string.
   resultInput.value = -currentValue
 }
 
