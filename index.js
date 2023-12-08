@@ -49,7 +49,7 @@ function appendToInput (value) {
 }
 
 // function to perform the deleting of a value
-function deleteLastInput() {
+function deleteLastInput () {
   if (resultInput.value.length > 0) {
     const splittedInputs = resultInput.value.split('')
     splittedInputs.pop()
@@ -88,10 +88,11 @@ function calculatePercentage () {
   resultInput.value = currentValue / 100
 }
 
+const math = require('mathjs')
 function calculateResult() {
   try {
     const expression = resultInput.value
-    const result = new Function(`return ${expression}`)() // The expression is passed as a string using a template literal with the ${expression} placeholder
+    const result = math.evaluate(expression)
     if (Number.isFinite(result)) {
       resultInput.value = result
     } else {
