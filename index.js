@@ -51,10 +51,10 @@ function appendToInput (value) {
 // function to perform the deleting of a value
 function deleteLastInput() {
   if (resultInput.value.length > 0) {
-    const splittedInputs = resultInput.value.split('');
-    splittedInputs.pop();
-    const updatedInput = splittedInputs.join('');
-    resultInput.value = updatedInput; // Update the resultInput.value with the updated input
+    const splittedInputs = resultInput.value.split('')
+    splittedInputs.pop()
+    const updatedInput = splittedInputs.join('')
+    resultInput.value = updatedInput // Update the resultInput.value with the updated input
   }
 }
 
@@ -88,11 +88,15 @@ function calculatePercentage () {
   resultInput.value = currentValue / 100
 }
 
-// Function to calculate the result of the arithmetic expression in the input field
-function calculateResult () {
+function calculateResult() {
   try {
-    const result = eval(resultInput.value)
-    resultInput.value = result
+    const expression = resultInput.value
+    const result = new Function(`return ${expression}`)() // The expression is passed as a string using a template literal with the ${expression} placeholder
+    if (Number.isFinite(result)) {
+      resultInput.value = result
+    } else {
+      throw new Error('Invalid result')
+    }
   } catch (error) {
     resultInput.value = 'Error'
   }
