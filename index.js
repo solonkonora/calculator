@@ -88,8 +88,8 @@ function calculatePercentage () {
   resultInput.value = currentValue / 100
 }
 
-const math = require ('mathjs')
-function calculateResult() {
+const math = require('mathjs')
+function calculateResult () {
   try {
     const expression = resultInput.value
     const result = math.evaluate(expression)
