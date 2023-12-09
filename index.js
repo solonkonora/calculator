@@ -11,7 +11,7 @@ buttons.forEach(button => {
 })
 
 // Function to handle button clicks
-function handleButtonClick(buttonText) {
+function handleButtonClick (buttonText) {
   switch (buttonText) {
     case 'AC':
       resultInput.value = ''
@@ -44,12 +44,12 @@ function handleButtonClick(buttonText) {
 }
 
 // Function to append the clicked button value to the input field
-function appendToInput(value) {
+function appendToInput (value) {
   resultInput.value += value
 }
 
 // function to perform the deleting of a value
-function deleteLastInput() {
+function deleteLastInput () {
   if (resultInput.value.length > 0) {
     const splittedInputs = resultInput.value.split('')
     splittedInputs.pop()
@@ -59,32 +59,32 @@ function deleteLastInput() {
 }
 
 // Function to append decimal point
-function appendDecimal() {
+function appendDecimal () {
   if (!resultInput.value.includes('.')) {
     resultInput.value += '.'
   }
 }
 
 // Function to append the clicked operator to the input field
-function appendOperator(value) {
-  const lastChar = resultInput.value.slice(-1);
+function appendOperator (value) {
+  const lastChar = resultInput.value.slice(-1)
 
   if (resultInput.value.length > 0 && (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/')) {
     // Replace the last operator if it already exists
-    resultInput.value = resultInput.value.slice(0, -1) + value;
+    resultInput.value = resultInput.value.slice(0, -1) + value
   } else {
-    resultInput.value += value;
+    resultInput.value += value
   }
 }
 
 // Function to negate the current input value
-function negate() {
+function negate () {
   const currentValue = parseFloat(resultInput.value) // The parseFloat() function is used to convert the value to a floating-point number. This step ensures that the value is treated as a number rather than a string.
   resultInput.value = -currentValue
 }
 
 // Function to calculate the percentage of the current input value
-function calculatePercentage() {
+function calculatePercentage () {
   const currentValue = parseFloat(resultInput.value)
   resultInput.value = currentValue / 100
 }
@@ -99,7 +99,7 @@ function calculatePercentage() {
 //   }
 // }
 // a calculate function using eval as commented above would do everything below easily, but because linter refuses the use of eval, i had to go this way
-function calculateResult() {
+function calculateResult () {
   let expression = resultInput.value
   let result
 
@@ -112,7 +112,7 @@ function calculateResult() {
 }
 
 // Function to evaluate the arithmetic expression using basic operations
-function evaluateExpression(expression) {
+function evaluateExpression (expression) {
   let operands = expression.split(/([+\-*/])/) // Split the expression into operands and operators
 
   // Remove any empty strings from the operands array
@@ -128,16 +128,16 @@ function evaluateExpression(expression) {
     switch (operator) {
       case '+':
         result += operand
-        break;
+        break
       case '-':
         result -= operand
-        break;
+        break
       case '*':
         result *= operand
-        break;
+        break
       case '/':
         result /= operand
-        break;
+        break
     }
   }
   return result
