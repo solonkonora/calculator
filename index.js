@@ -100,7 +100,7 @@ function calculatePercentage () {
 // }
 // a calculate function using eval as commented above would do everything below easily, but because linter refuses the use of eval, i had to go this way
 function calculateResult () {
-  let expression = resultInput.value
+  const expression = resultInput.value
   let result
 
   try {
